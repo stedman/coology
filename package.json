@@ -1,0 +1,12 @@
+{
+  "name": "coology",
+  "version": "0.8.1",
+  "description": "Awesome Schoology themes extension",
+  "scripts": {
+    "pack": "sh bin/pack.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Steve Stedman <steve@stedman.dev>",
+  "license": "WTFPL"
+}

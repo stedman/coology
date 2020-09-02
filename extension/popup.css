@@ -1,0 +1,10 @@
+body {
+  line-height: 1.5;
+  width: 10rem;
+}
+h1 {
+  font-size: 1.125rem;
+}
+.themes {
+  list-style: none;
+}

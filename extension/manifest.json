@@ -1,0 +1,19 @@
+{
+	"manifest_version": 2,
+	"name": "Coology",
+	"description": "Awesome Schoology themes extension",
+	"version": "0.8.1",
+	"content_scripts": [{
+		"matches": ["*://*.schoology.com/*"],
+		"css": ["coology.css"],
+		"js": ["coology.js"],
+		"run_at": "document_end"
+  }],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+	"author": "Steve Stedman"
+}
