@@ -1,17 +1,23 @@
-/* defaults */
-:root {
-  --content-bg: #faf9f7;
-  --content-light-bg: #faf9f7;
-  --header-bg: inherit;
-  --header-hover-bg: inherit;
-  --header-dropdown-bg: #fff;
-  --header-box-shadow: none;
-  --header-menu-bg: #fff;
-  --header-menu-hover-bg: inherit;
-  --header-menu-color: inherit;
-  --footer-bg: #222;
-}
 /* custom themes */
+.coology-awtum {
+  --content-bg: hsl(30, 40%, 70%);
+  --content-light-bg: hsl(40, 40%, 90%);
+  --header-bg: hsl(10, 70%, 50%);
+  --header-hover-bg: hsl(10, 80%, 40%);
+  --header-box-shadow: 0 4px 2px green;
+  --header-menu-hover-bg: hsl(30, 40%, 60%);
+  --footer-bg: hsl(30, 65%, 30%);
+}
+.coology-booga {
+  --content-bg: hsl(50, 35%, 65%);
+  --content-light-bg: hsl(50, 35%, 80%);
+  --header-bg: hsl(205, 90%, 70%);
+  --header-hover-bg: hsl(205, 90%, 50%);
+  --header-dropdown-bg: hsl(50, 30%, 95%);
+  --header-menu-bg: hsl(50, 30%, 95%);
+  --header-menu-hover-bg: hsl(205, 90%, 60%);
+  --footer-bg: hsl(205, 90%, 30%);
+}
 .coology-boop {
   --content-bg: hsl(195, 60%, 90%);
   --content-light-bg: hsl(195, 60%, 90%);
@@ -54,10 +60,10 @@
 
 /* content background */
 .coology {
-  background-color: var(--content-light-bg);
+  background-color: var(--content-light-bg, #faf9f7);
 }
 .coology.theme-2016 {
-  background-color: var(--content-bg);
+  background-color: var(--content-bg, #faf9f7);
 }
 .coology.theme-2016.coology-lambo {
   background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px, linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px, linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px, linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px, linear-gradient(90deg, #1b1b1b 10px, transparent 10px), linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
@@ -66,8 +72,8 @@
 }
 /* header */
 .coology ._1SIMq._3v0y7._349XD {
-  background-color: var(--header-bg) !important;
-  box-shadow: var(--header-box-shadow) !important;
+  background-color: var(--header-bg, inherit) !important;
+  box-shadow: var(--header-box-shadow, none) !important;
 }
 .coology nav._1tpub.util-justify-content-space-between-3euFK {
   background-color: transparent;
@@ -79,11 +85,11 @@
 .coology .Header-header-button-1EE8Y:hover,
 .coology .Header-header-button-1EE8Y:focus,
 .coology .Header-header-button-active-GnvKh {
-  background-color: var(--header-hover-bg) !important;
+  background-color: var(--header-hover-bg, inherit) !important;
 }
 /* header menu */
 .coology .QshRx.util-box-shadow-dropdown-2Bl9b {
-  background-color: var(--header-dropdown-bg);
+  background-color: var(--header-dropdown-bg, #fff);
   margin-left: 10%;
   width: 80%;
 }
@@ -92,18 +98,17 @@
 }
 /* header right side menu */
 .coology .Header-header-drop-menu-3SaYV {
-  background-color: var(--header-menu-bg);
-  color: var(--header-menu-color);
+  background-color: var(--header-menu-bg, #fff);
+  color: var(--header-menu-color, inherit);
 }
-/* .coology .Header-header-button-active-state-3AvBm:hover:not(:active), */
 .coology .Header-header-drop-menu-item-3d3IZ:hover:not(:active),
-.coology .Header-header-drop-menu-item-3d3IZ:focus:not(:active){
-  background-color: var(--header-menu-hover-bg) !important;
+.coology .Header-header-drop-menu-item-3d3IZ:focus:not(:active) {
+  background-color: var(--header-menu-hover-bg, inherit) !important;
 }
 /* footer */
 .coology footer {
-  background-color: var(--footer-bg) !important;
+  background-color: var(--footer-bg, #222) !important;
 }
 .coology ._2T2dA .util-justify-content-space-between-3euFK {
-  background-color: var(--footer-bg);
+  background-color: var(--footer-bg, #222);
 }

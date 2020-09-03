@@ -1,3 +1,63 @@
+/* values copied verbatim from coology.css */
+[value="awtum"] + samp {
+  --content-bg: hsl(30, 40%, 70%);
+  --content-light-bg: hsl(40, 40%, 90%);
+  --header-bg: hsl(10, 70%, 50%);
+  --header-hover-bg: hsl(10, 80%, 40%);
+  --header-box-shadow: 0 4px 2px green;
+  --header-menu-hover-bg: hsl(30, 40%, 60%);
+  --footer-bg: hsl(30, 65%, 30%);
+}
+[value="booga"] + samp {
+  --content-bg: hsl(50, 35%, 65%);
+  --content-light-bg: hsl(50, 35%, 80%);
+  --header-bg: hsl(205, 90%, 70%);
+  --header-hover-bg: hsl(205, 90%, 50%);
+  --header-dropdown-bg: hsl(50, 30%, 95%);
+  --header-menu-bg: hsl(50, 30%, 95%);
+  --header-menu-hover-bg: hsl(205, 90%, 60%);
+  --footer-bg: hsl(205, 90%, 30%);
+}
+[value="boop"] + samp {
+  --content-bg: hsl(195, 60%, 90%);
+  --content-light-bg: hsl(195, 60%, 90%);
+  --header-bg: hotpink;
+  --header-hover-bg: deeppink;
+  --header-dropdown-bg: hsl(195, 60%, 98%);
+  --header-menu-hover-bg: deeppink;
+  --footer-bg: deeppink;
+}
+[value="enzo"] + samp {
+  --content-bg: #222;
+  --header-bg: hsl(0, 100%, 50%);
+  --header-hover-bg: hsl(0, 100%, 35%);
+  --header-box-shadow: 0 3px yellow;
+  --header-menu-bg: hsl(50, 100%, 55%);
+  --header-menu-hover-bg: hsl(0, 100%, 50%);
+  --header-menu-color: #111;
+  --footer-bg: #111;
+}
+[value="lambo"] + samp {
+  --content-bg: #131313;
+  --header-bg: hsl(135, 95%, 60%);
+  --header-hover-bg: hsl(145, 85%, 30%);
+  --header-dropdown-bg: hsl(50, 100%, 98%);
+  --header-box-shadow: 0 3px 2px hsla(0, 90%, 40%, 0.7);
+  --header-menu-bg: hsl(50, 100%, 65%);
+  --header-menu-hover-bg: hsl(50, 60%, 45%);
+  --header-menu-color: #111;
+  --footer-bg: #222;
+}
+[value="sproing"] + samp {
+  --content-bg: hsl(100, 80%, 90%);
+  --content-light-bg: hsl(100, 80%, 90%);
+  --header-bg: hsl(200, 100%, 80%);
+  --header-hover-bg: hsl(200, 60%, 50%);
+  --header-dropdown-bg: hsl(100, 80%, 98%);
+  --header-menu-hover-bg: hsl(200, 70%, 60%);
+  --footer-bg: hsl(100, 40%, 30%);
+}
+
 body {
   line-height: 1.5;
   width: 10rem;
@@ -5,6 +65,38 @@ body {
 h1 {
   font-size: 1.125rem;
 }
-.themes {
+ul {
+  font-size: 1rem;
   list-style: none;
+  padding-left: 0;
+}
+li {
+  margin-bottom: 1em;
+  position: relative;
+}
+samp {
+  background-color: var(--content-bg);
+  border-radius: 3px;
+  display: inline-block;
+  position: absolute;
+  right: 2em;
+  top: -1.6em;
+  transform: rotate(90deg);
+}
+samp:before,
+samp:after {
+  content: '';
+  display: inline-block;
+  height: 5em;
+  width: 0.5em;
+  margin: 0 0 -0.4em 0;
+}
+samp:before {
+  background-color: var(--header-bg);
+  margin-right: 1em;
+  border-radius: 3px 0 0 3px;
+}
+samp:after {
+  background-color: var(--footer-bg);
+  border-radius: 0 3px 3px 0;
 }

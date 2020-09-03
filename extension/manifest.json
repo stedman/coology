@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Coology",
 	"description": "Awesome Schoology themes extension",
-	"version": "0.9.0",
+	"version": "0.10.0",
 	"content_scripts": [{
 		"matches": ["*://*.schoology.com/*"],
 		"css": ["coology.css"],
