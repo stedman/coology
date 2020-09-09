@@ -1,9 +1,11 @@
 {
   "name": "coology",
-  "version": "0.10.0",
+  "version": "0.12.0",
   "description": "Awesome Schoology themes extension",
   "scripts": {
-    "pack": "sh bin/pack.sh",
+    "css": "node makeSampleCss.js",
+    "css-watch": "node makeSampleCss.js --watch",
+    "pack": "npm run css && sh bin/pack.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

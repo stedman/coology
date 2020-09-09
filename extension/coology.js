@@ -1,8 +1,17 @@
-(function () {
+/**
+ * Apply Coology themes to Schoology apps.
+ */
+const themer = () => {
   const bodyEl = document.body;
-  // Helper function to remove coology class when 'resetting' to original theme
+  /**
+   * Helper function to remove coology class when 'resetting' to original theme
+   *
+   * @param {string} theme Theme name
+   */
   const coolify = (theme) => {
     if (!theme) return;
+
+    // Remove all traces of coology if theme choice is 'original'
     if (theme === 'original') {
       bodyEl.classList.remove('coology');
     } else {
@@ -13,20 +22,32 @@
   // Get last saved theme
   chrome.storage.local.get('theme', ({theme}) => {
     if (!theme) return;
+
     coolify(theme);
+    // Add the theme name to <body>
     bodyEl.classList.add(`coology-${theme}`);
   })
 
-  // Change theme when saved choices change
+  // Listen for changes to theme storage
   chrome.storage.onChanged.addListener(({theme}) => {
     coolify(theme.newValue);
+    // Change themes from old to new
     bodyEl.classList.replace(`coology-${theme.oldValue}`, `coology-${theme.newValue}`);
   });
+};
 
-  // Provide link to iframe content outside of iframe
+/**
+ * EXTRA FEATURE: Provide link to iframe content outside of iframe.
+ */
+const iframeLinker = () => {
+  // Get iframes from suitable content areas
   const iframeEls = document.querySelectorAll('.standard-page iframe');
 
   iframeEls.forEach((el) => {
+    // Add link to iframe source below the iframe
     el.insertAdjacentHTML('afterend', `<p><a href="${el.src}" target="_blank">⬆︎ open in new window ⬆︎</a></p>`);
   });
-})();
+};
+
+themer();
+iframeLinker();
