@@ -1,5 +1,6 @@
 # Changelog
 
+* **0.13.1** - fix iframe selector (was different on parent and student views)
 * **0.13.0** - make extension work on *.schoology.com only
 * **0.12.2** - refine Iframe Exploder
 * **0.12.1** - move popup theme CSS into themes.css
