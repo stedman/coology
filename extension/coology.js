@@ -44,8 +44,15 @@ const iframeLinker = () => {
   const iframeEls = document.querySelectorAll('.standard-page iframe');
 
   iframeEls.forEach((el) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'iframe-ex-wrap';
+    el.parentNode.insertBefore(wrapper, el);
+    wrapper.appendChild(el);
+
+    el.classList.add('iframe-ex-i');
+
     // Add link to iframe source below the iframe
-    el.insertAdjacentHTML('afterend', `<p><a href="${el.src}" target="_blank">⬆︎ open in new window ⬆︎</a></p>`);
+    el.insertAdjacentHTML('afterend', `<a href="${el.src}" target="_blank" class="iframe-ex-link">⬆︎ open this in a new tab ⬆︎</a>`);
   });
 };
 

@@ -55,3 +55,31 @@
 .coology ._2T2dA .util-justify-content-space-between-3euFK {
   background-color: var(--footer-bg, #222);
 }
+
+/* Iframe Exploder */
+.iframe-ex-wrap {
+  display: inline-block;
+  margin-left: 1px;
+}
+.iframe-ex-i {
+  border-radius: 0.5rem 0.5rem 0 0;
+  border: 1px solid #ccc;
+  border-bottom: 0;
+  margin-bottom: -4px;
+}
+.iframe-ex-link {
+  background-color: #f9f9f9;
+  border-radius: 0 0 1rem 1rem;
+  border: 1px solid #ccc;
+  border-top: 0;
+  box-shadow: 0 2px 0px #ddd;
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 0;
+  padding: 0.5em;
+  text-align: center;
+}
+.iframe-ex-link:hover {
+  background: linear-gradient(#f9f9f9, #eee);
+  box-shadow: none;
+}

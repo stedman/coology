@@ -1,11 +1,18 @@
+![Coology](./extension/icons/Coology-96.png)
+
 # Coology
 
-Coology is a cross-browser extension that makes the [Schoology](https://app.schoology.com/) app a bit more enjoyable.
+Coology is a cross-browser extension that brings a little *cha-cha* to the [Schoology](https://app.schoology.com/) app.
 
 ## Features
 
-* themed colors for header, background, and footer
-* iframe expander (inserts links to open iframe content to new tabs)
+* **Theme Chooser** for header, background, and footer colors
+
+    ![Theme chooser](./src/screencap-popup.png)
+
+* **Iframe Exploder** to insert links below iframe for opening content in new tabs
+
+    ![Iframe Exploder](./src/screencap-iframe-ex.png)
 
 ## Installation
 
