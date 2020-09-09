@@ -1,5 +1,6 @@
 # Changelog
 
+* **0.12.1** - move popup theme CSS into themes.css
 * **0.12.0** - add makeSampleCss script to auto generate sample CSS, update README
 * **0.11.0** - add icons, change Boop theme to Condy
 * **0.10.1** - refined popup for Firefox
