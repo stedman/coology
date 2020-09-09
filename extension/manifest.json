@@ -2,10 +2,14 @@
 	"manifest_version": 2,
 	"name": "Coology",
 	"description": "Awesome Schoology themes extension",
-  "version": "0.12.2",
+  "version": "0.13.0",
   "icons": {
     "48": "icons/Coology-48.png",
     "96": "icons/Coology-96.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
   },
 	"content_scripts": [{
 		"matches": ["*://*.schoology.com/*"],
@@ -13,11 +17,16 @@
 		"js": ["coology.js"],
 		"run_at": "document_end"
   }],
-  "browser_action": {
-    "default_popup": "popup.html"
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/Coology-48.png",
+      "96": "icons/Coology-96.png"
+    }
   },
   "permissions": [
-    "storage"
+    "storage",
+    "tabs"
   ],
 	"author": "Steve Stedman"
 }

@@ -1,5 +1,7 @@
 ![Coology](./extension/icons/Coology-96.png)
 
+![GitHub manifest version (path)](https://img.shields.io/github/manifest-json/v/stedman/coology?filename=extension%2Fmanifest.json)
+
 # Coology
 
 Coology is a cross-browser extension that brings a little *cha-cha* to the [Schoology](https://app.schoology.com/) app.
@@ -16,14 +18,23 @@ Coology is a cross-browser extension that brings a little *cha-cha* to the [Scho
 
 ## Installation
 
-### Chrome, Edge, Brave
+Until it seems wise to add this extension to the Chrome Store, the following installation method is recommended.
+
+### 1. Clone or download
+
+* Git clone: <https://github.com/stedman/coology.git>
+* Download: <https://github.com/stedman/coology/archive/master.zip>
+
+### 2. Add to browser
+
+#### Chrome, Edge, Brave
 
 1. Open `chrome://extensions/`
 2. Enable **Developer mode**
 3. Click **Load unpacked**
 4. Select the `coology/extension/` directory
 
-### Firefox
+#### Firefox
 
 1. Open `about:debugging#/runtime/this-firefox`
 2. Click **Load Temporary Add-on...**
