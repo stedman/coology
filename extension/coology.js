@@ -40,20 +40,44 @@ const themer = () => {
  * EXTRA FEATURE: Provide link to iframe content outside of iframe.
  */
 const iframeLinker = () => {
+  const linkify = (frameEls) => {
+    frameEls.forEach((el) => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'iframe-ex-wrap';
+      el.parentNode.insertBefore(wrapper, el);
+      wrapper.appendChild(el);
+
+      el.classList.add('iframe-ex-i');
+
+      // Add link to iframe source below the iframe
+      el.insertAdjacentHTML('afterend', `<a href="${el.src}" target="_blank" class="iframe-ex-link">⬆︎ open this in a new tab ⬆︎</a>`);
+    });
+  }
+
+  let searchTries = 0;
+
   // Get iframes from suitable content areas
-  const iframeEls = document.querySelectorAll(`.standard-page iframe, #main iframe`);
+  const getIframes = (elements) => {
+    // Check if elements is a node object; else it's empty or a requestAnimationFrame timestamp
+    const frameEls = typeof elements === 'object'
+      ? elements
+      : document.querySelectorAll('#content-wrapper iframe')
 
-  iframeEls.forEach((el) => {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'iframe-ex-wrap';
-    el.parentNode.insertBefore(wrapper, el);
-    wrapper.appendChild(el);
+    if (frameEls.length === 0) {
+      // Give up after several tries
+      if (searchTries > 25) {
+        console.info('Coology gave up looking for iframes.');
+        return;
+      }
 
-    el.classList.add('iframe-ex-i');
+      searchTries += 1
+      window.requestAnimationFrame(getIframes);
+    } else {
+      linkify(frameEls);
+    }
+  };
 
-    // Add link to iframe source below the iframe
-    el.insertAdjacentHTML('afterend', `<a href="${el.src}" target="_blank" class="iframe-ex-link">⬆︎ open this in a new tab ⬆︎</a>`);
-  });
+  getIframes(document.querySelectorAll('.standard-page iframe, #main iframe'));
 };
 
 themer();
