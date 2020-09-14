@@ -41,7 +41,7 @@ const themer = () => {
  */
 const iframeLinker = () => {
   // Get iframes from suitable content areas
-  const iframeEls = document.querySelectorAll('#main iframe');
+  const iframeEls = document.querySelectorAll(`.standard-page iframe, #main iframe`);
 
   iframeEls.forEach((el) => {
     const wrapper = document.createElement('div');
