@@ -40,8 +40,16 @@ const themer = () => {
  * EXTRA FEATURE: Provide link to iframe content outside of iframe.
  */
 const iframeLinker = () => {
+  /**
+   * Wrap iframe and add link to iframe source.
+   *
+   * @param {array} frameEls Iframe elements.
+   */
   const linkify = (frameEls) => {
     frameEls.forEach((el) => {
+      // Don't get iframes nested in forms. Those cause all sorts of problems.
+      if (el.closest('form')) return undefined;
+
       const wrapper = document.createElement('div');
       wrapper.className = 'iframe-ex-wrap';
       el.parentNode.insertBefore(wrapper, el);
@@ -56,13 +64,19 @@ const iframeLinker = () => {
 
   let searchTries = 0;
 
-  // Get iframes from suitable content areas
+  /**
+   * Get iframes from suitable content areas
+   *
+   * @param {array} elements Collection of iframe elements.
+   */
   const getIframes = (elements) => {
     // Check if elements is a node object; else it's empty or a requestAnimationFrame timestamp
     const frameEls = typeof elements === 'object'
       ? elements
-      : document.querySelectorAll('#content-wrapper iframe')
+      : document.querySelectorAll(`#content-wrapper iframe`)
 
+    // Some iframes are in React components (in #content-wrapper).
+    // If we haven't found an iframe after initial search, wait for page to repaint and try again.
     if (frameEls.length === 0) {
       // Give up after several tries
       if (searchTries > 25) {
@@ -77,7 +91,7 @@ const iframeLinker = () => {
     }
   };
 
-  getIframes(document.querySelectorAll('.standard-page iframe, #main iframe'));
+  getIframes(document.querySelectorAll(`.standard-page iframe, #main iframe`));
 };
 
 themer();
