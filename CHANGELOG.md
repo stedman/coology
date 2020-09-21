@@ -1,5 +1,6 @@
 # Changelog
 
+* **0.14.0** - change 'coology' files to 'content'
 * **0.13.4** - fix iframe selector, skip iframes inside of forms
 * **0.13.3** - fix iframe selector, using requestAnimationFrame to wait for page to settle
 * **0.13.2** - fix iframe selector (DOM is shifting)
