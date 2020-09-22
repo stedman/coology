@@ -1,5 +1,11 @@
 # Changelog
 
+* **0.15.0**
+  * add grade expander with low grade alerts
+  * don't add coology-THEME if original theme is chosen
+  * fix add new theme
+  * fix iframe expander > iframe width=100% bug
+  * fix iframe expander > running on non-iframe pages
 * **0.14.0** - change 'coology' files to 'content'
 * **0.13.4** - fix iframe selector, skip iframes inside of forms
 * **0.13.3** - fix iframe selector, using requestAnimationFrame to wait for page to settle

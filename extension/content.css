@@ -1,18 +1,6 @@
 /* custom themes */
 @import 'themes.css';
 
-/* content background */
-.coology {
-  background-color: var(--content-light-bg, #faf9f7);
-}
-.coology.theme-2016 {
-  background-color: var(--content-bg, #faf9f7);
-}
-.coology.theme-2016.coology-lambo {
-  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px, linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px, linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px, linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px, linear-gradient(90deg, #1b1b1b 10px, transparent 10px), linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-  background-color: var(--content-bg);
-  background-size: 20px 20px;
-}
 /* header */
 .coology ._1SIMq._3v0y7._349XD {
   background-color: var(--header-bg, inherit) !important;
@@ -48,6 +36,20 @@
 .coology .Header-header-drop-menu-item-3d3IZ:focus:not(:active) {
   background-color: var(--header-menu-hover-bg, inherit) !important;
 }
+
+/* page background */
+.coology {
+  background-color: var(--content-light-bg, #faf9f7);
+}
+.coology.theme-2016 {
+  background-color: var(--content-bg, #faf9f7);
+}
+.coology.theme-2016.coology-lambo {
+  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px, linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px, linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px, linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px, linear-gradient(90deg, #1b1b1b 10px, transparent 10px), linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+  background-color: var(--content-bg);
+  background-size: 20px 20px;
+}
+
 /* footer */
 .coology footer {
   background-color: var(--footer-bg, #222) !important;
@@ -56,18 +58,21 @@
   background-color: var(--footer-bg, #222);
 }
 
+
 /* Iframe Exploder */
-.iframe-ex-wrap {
-  display: inline-block;
+.coology-iframe-wrap {
   margin-left: 1px;
 }
-.iframe-ex-i {
+.coology-inline-block {
+  display: inline-block;
+}
+.coology-iframe-i {
   border-radius: 0.5rem 0.5rem 0 0;
   border: 1px solid #ccc;
   border-bottom: 0;
   margin-bottom: -4px;
 }
-.iframe-ex-link {
+.coology-iframe-link {
   background-color: #f9f9f9;
   border-radius: 0 0 1rem 1rem;
   border: 1px solid #ccc;
@@ -79,7 +84,82 @@
   padding: 0.5em;
   text-align: center;
 }
-.iframe-ex-link:hover {
+.coology-iframe-link:hover {
   background: linear-gradient(#f9f9f9, #eee);
   box-shadow: none;
+}
+
+/* Grade Expander */
+.coology-grade-expander {
+  background: linear-gradient(#fff, #ddd);
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  margin: 4px 10px;
+  padding: 4px 10px;
+}
+.coology-grade-expander:before,
+.coology-grade-expander:after {
+  color: #090;
+  content: '⬇︎';
+  margin: 0 0.5em 0 0;
+}
+.coology-grade-expander:after {
+  margin: 0 0 0 0.5em;
+}
+.coology-grade-expander[expanded='true']:before,
+.coology-grade-expander[expanded='true']:after {
+  content: '⬆︎';
+}
+
+.coology-course-grade,
+.coology-active-grade:after {
+  color: #090;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 1em;
+}
+.coology-course-grade em {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+}
+/* top of page */
+.download-grade-wrapper.coology-grade-alert:after {
+  content: '⚠️ Grade Alerts Below';
+}
+.download-grade-wrapper.coology-grade-alert.coology-grade-missing:after {
+  content: '⚠️ Grade Alerts Below | 🛑 Missing Work Below';
+}
+/* courses */
+.coology-active-grade:after {
+  color: #4479B3;
+}
+.coology-active-grade:after {
+  content: '⬆︎ Collapse Section';
+}
+.coology-active-grade.coology-grade-alert:after {
+  content: '⬆︎ Collapse Section ⚠️';
+}
+.coology-active-grade.coology-grade-alert.coology-grade-missing:after {
+  content: '⬆︎ Collapse Section 🛑';
+}
+.coology-hidden-grade:after {
+  content: '⬇︎ Grades to View';
+}
+.coology-hidden-grade.coology-grade-alert:after {
+  content: '⬇︎ Grades to View ⚠️';
+}
+.coology-hidden-grade.coology-grade-alert.coology-grade-missing:after {
+  content: '⬇︎ Grades to View 🛑';
+}
+/* assignments */
+tr.coology-grade-alert {
+  background: hsl(55, 90%, 93%);
+}
+.coology-grade-alert .grade-column .td-content-wrapper:after {
+  content: '⚠️';
+  margin-left: 0.3em;
+}
+.coology-grade-alert.coology-grade-missing .grade-column .td-content-wrapper:after {
+  content: '🛑';
 }
