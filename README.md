@@ -8,22 +8,28 @@ Coology is a cross-browser extension that brings a little *cha-cha* to the [Scho
 
 ## Features
 
-* **Theme Chooser** for header, background, and footer colors
+* **Theme Chooser** customize your header, background, and footer colors
 
     ![Theme chooser](./src/screencap-popup.png)
 
-* **Iframe Exploder** to insert links below iframe for opening content in new tabs
+* **Grade Helper** add row expander and high/low grade alerts
 
-    ![Iframe Exploder](./src/screencap-iframe-ex.png)
+    ![Grade Helper](./src/screencap-grades-expand.png)
+
+* **Iframe Linker** inserts links below iframes to open contents in new tabs
+
+    ![Iframe Linker](./src/screencap-iframe-link.png)
+
+* **Link Styler** restores link underlines and colors
 
 ## Installation
 
-Until it seems wise to add this extension to the Chrome Store, the following installation method is recommended.
+Until this extension passes review in the Chrome Store, the following installation method is recommended.
 
-### 1. Clone or download
+### 1. Download (or clone, to develop your own features)
 
-* Git clone: <https://github.com/stedman/coology.git>
 * Download: <https://github.com/stedman/coology/archive/master.zip>
+* Git clone: <https://github.com/stedman/coology.git>
 
 ### 2. Add to browser
 
@@ -49,7 +55,7 @@ Color themes are at the core of Coology. The files to edit are:
 * `extension/themes.css` = each THEME in `.coology-THEME` and `[value="THEME"]` needs to match an input value below
 * `extension/popup.html` = each input `value="THEME"` needs to match a class name and value above
 
-The Schoology app is visually transformed by the `coology.css` stylesheet which imports themes via the CSS variables found in `themes.css`. The extension popup also draws its variables from `themes.css` via import.
+The Schoology app is visually transformed by the `contemt.css` stylesheet which imports themes via the CSS variables found in `themes.css`. The extension popup also draws its variables from `themes.css` via import.
 
 ### Pack for distribution
 

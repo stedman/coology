@@ -1,5 +1,12 @@
 # Changelog
 
+* **0.16.0**
+  * add content link underlines so they're easier to find
+  * add grade/alert counts to course grade headings
+  * highlight high/low grade classwork rows
+  * add alerts for missing assignments
+  * fix iframe linker: remove wrap that was breaking iframes
+  * refine iframe linker: link button
 * **0.15.0**
   * add grade expander with low grade alerts
   * don't add coology-THEME if original theme is chosen

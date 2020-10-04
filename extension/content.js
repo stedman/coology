@@ -62,23 +62,12 @@ const iframeLinker = () => {
    */
   const linkify = (frameEls) => {
     frameEls.forEach((frameEl) => {
-      // Don't get iframes nested in forms. Those cause all sorts of problems.
+      // Don't operate on iframes that are nested in forms.
+      // Those cause all sorts of problems.
       if (frameEl.closest('form')) return undefined;
 
-      const wrapper = document.createElement('div');
-      wrapper.classList.add('coology-iframe-wrap');
-
-      if (frameEl.width !== '100%') {
-        wrapper.classList.add('coology-inline-block');
-      }
-
-      frameEl.parentNode.insertBefore(wrapper, frameEl);
-      wrapper.appendChild(frameEl);
-
-      frameEl.classList.add('coology-iframe-i');
-
       // Add link to iframe source below the iframe
-      frameEl.insertAdjacentHTML('afterend', `<a href="${frameEl.src}" target="_blank" class="coology-iframe-link">⬆︎ open this in a new tab ⬆︎</a>`);
+      frameEl.insertAdjacentHTML('afterend', `<div class="coology-iframe-linker"><a href="${frameEl.src}" target="_blank">open this content in a new tab</a></div>`);
     });
   }
 
@@ -198,11 +187,20 @@ const gradeHelper = () => {
         let hasGradeAlert = false;
         let hasMissingGrade = false;
 
+        const count = {
+          total: 0,
+          hundo: 0,
+          alert: 0,
+          missing: 0,
+        };
+
         // Get grades that are awarded and missing.
         nextSibEl.querySelectorAll('.awarded-grade, .no-grade').forEach(gradeEl => {
           const numbGrade = Number(gradeEl.textContent);
           // Skip the junk.
           if (typeof numbGrade !== 'number' || !isFinite(numbGrade)) return;
+
+          count.total++;
 
           const grade = Math.round(numbGrade);
           let gradePercent = 0;
@@ -215,33 +213,54 @@ const gradeHelper = () => {
             gradePercent = Math.round((grade / maxGrade) * 100);
           }
 
-          if (gradePercent < lowerLimit) {
-            // Set course level warning on first alert.
-            if (!hasGradeAlert) {
-              courseTitleEl.classList.add('coology-grade-alert');
-              downloadEl.classList.add('coology-grade-alert');
-              hasGradeAlert = true;
-            }
+          const gradeRowEl = gradeEl.closest('tr');
 
+          if (gradePercent < lowerLimit) {
             const isMissing = gradeEl.classList.contains('no-grade');
 
-            if (!hasMissingGrade && isMissing) {
-              courseTitleEl.classList.add('coology-grade-alert', 'coology-grade-missing');
-              downloadEl.classList.add('coology-grade-alert', 'coology-grade-missing');
-              hasMissingGrade = true;
+            // Set individual grade alerts.
+            gradeRowEl.classList.add('coology-grade-alert');
+            if (isMissing) gradeRowEl.classList.add('coology-grade-missing');
+            gradeRowEl.setAttribute('title', `Grade alert: ${gradePercent}%`);
+
+            // Set heading alerts on first occurrence.
+            if (!hasGradeAlert) {
+              hasGradeAlert = true;
+              downloadEl.classList.add('coology-grade-alert');
+              courseTitleEl.classList.add('coology-grade-alert');
             }
 
-            // Set individual grade alerts.
-            const gradeWrapEl = gradeEl.closest('tr')
-            gradeWrapEl.classList.add('coology-grade-alert');
-            if (isMissing) gradeWrapEl.classList.add('coology-grade-missing');
-            gradeWrapEl.setAttribute('title', `Grade alert: ${gradePercent}%`);
+            if (isMissing) {
+              count.missing++;
+
+              if (!hasMissingGrade) {
+                hasMissingGrade = true;
+                downloadEl.classList.add('coology-grade-alert', 'coology-grade-missing');
+                courseTitleEl.classList.add('coology-grade-alert', 'coology-grade-missing');
+              }
+            } else {
+              count.alert++;
+            }
+          }
+          else if (gradePercent === 100) {
+            count.hundo++;
+            gradeRowEl.classList.add('coology-grade-100');
           }
         });
 
+        // Append score highlights.
+        const scoreHtmls = [];
+        if (count.total > 0) scoreHtmls.push(`<span title="${count.total} total" class="coology-grade-total">${count.total} ✅</span>`);
+        if (count.hundo > 0) scoreHtmls.push(`<span title="${count.hundo} hundos">${count.hundo} ✅</span>`);
+        if (count.alert > 0) scoreHtmls.push(`<span title="${count.alert} alerts">${count.alert} ⚠️</span>`);
+        if (count.missing > 0) scoreHtmls.push(`<span title="${count.missing} missing">${count.missing} 🛑</span>`);
+
+        courseTitleEl.insertAdjacentHTML('beforeend',
+        `<span class="coology-course-scores">${scoreHtmls.join('')}</span>`);
+
         // Append available course grades to visible course names.
-        const gradeEl = nextSibEl.querySelector('.course-row .rounded-grade');
-        const grade = gradeEl ? gradeEl.textContent : '';
+        const courseGradeEl = nextSibEl.querySelector('.course-row .rounded-grade');
+        const grade = courseGradeEl ? courseGradeEl.textContent : '';
 
         if (grade.length) {
           courseTitleEl.querySelector('a')

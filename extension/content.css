@@ -1,4 +1,4 @@
-/* custom themes */
+/* THEMER */
 @import 'themes.css';
 
 /* header */
@@ -58,38 +58,47 @@
   background-color: var(--footer-bg, #222);
 }
 
+/* SCHOOLOGY UX FIXES */
 
-/* Iframe Exploder */
-.coology-iframe-wrap {
-  margin-left: 1px;
+/* make links easy to find */
+.s-rte a {
+  text-decoration: underline;
 }
-.coology-inline-block {
+.s-rte a:hover {
+  color: #000 !important;
+}
+
+/* IFRAME LINKER */
+.coology-iframe-linker {
+  --link-bg: hsl(100, 55%, 45%);
+}
+.coology-iframe-linker a {
+  background: var(--link-bg);
+  border-radius: 3rem;
+  color: #fff;
   display: inline-block;
-}
-.coology-iframe-i {
-  border-radius: 0.5rem 0.5rem 0 0;
-  border: 1px solid #ccc;
-  border-bottom: 0;
-  margin-bottom: -4px;
-}
-.coology-iframe-link {
-  background-color: #f9f9f9;
-  border-radius: 0 0 1rem 1rem;
-  border: 1px solid #ccc;
-  border-top: 0;
-  box-shadow: 0 2px 0px #ddd;
-  display: block;
   font-size: 1.5rem;
-  margin-top: 0;
-  padding: 0.5em;
-  text-align: center;
+  font-weight: normal;
+  margin: 0.5em 0 1em;
+  padding: 0.5em 1em;
+  text-decoration: none !important;
 }
-.coology-iframe-link:hover {
-  background: linear-gradient(#f9f9f9, #eee);
-  box-shadow: none;
+.coology-iframe-linker a:before {
+  border-left: 1em solid transparent;
+  border-right: 1em solid transparent;
+  border-bottom: 1em solid var(--link-bg);
+  content: '';
+  margin-left: 2.4em;
+  margin-top: -1.2em;
+  position: absolute;
+}
+.coology-iframe-linker a:hover,
+.coology-iframe-linker a:focus {
+  color: #fff;
+  filter: brightness(1.1) saturate(1.4);
 }
 
-/* Grade Expander */
+/* GRADE HELPER */
 .coology-grade-expander {
   background: linear-gradient(#fff, #ddd);
   border-radius: 5px;
@@ -131,28 +140,43 @@
   content: '⚠️ Grade Alerts Below | 🛑 Missing Work Below';
 }
 /* courses */
+.coology-course-scores {
+  color: #4479B3;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 1em;
+}
+.coology-course-scores span {
+  background: linear-gradient(#f9f9f9, #eee);
+  border-radius: 5px;
+  box-shadow: 0 1px 0 1px #ccc;
+  padding: 4px 6px;
+  margin: 0 2px;
+}
+.coology-grade-total {
+  filter: grayscale(1);
+  font-weight: bold;
+}
+.coology-grade-total + span {
+  margin-left: 0.75em;
+}
 .coology-active-grade:after {
   color: #4479B3;
 }
 .coology-active-grade:after {
   content: '⬆︎ Collapse Section';
 }
-.coology-active-grade.coology-grade-alert:after {
-  content: '⬆︎ Collapse Section ⚠️';
-}
-.coology-active-grade.coology-grade-alert.coology-grade-missing:after {
-  content: '⬆︎ Collapse Section 🛑';
-}
 .coology-hidden-grade:after {
-  content: '⬇︎ Grades to View';
-}
-.coology-hidden-grade.coology-grade-alert:after {
-  content: '⬇︎ Grades to View ⚠️';
-}
-.coology-hidden-grade.coology-grade-alert.coology-grade-missing:after {
-  content: '⬇︎ Grades to View 🛑';
+  content: '⬇︎ View Grades';
 }
 /* assignments */
+tr.coology-grade-100 {
+  background: hsl(140, 90%, 92%);
+}
+.coology-grade-100 .grade-column .td-content-wrapper:after {
+  content: '✅💯';
+  margin-left: 0.3em;
+}
 tr.coology-grade-alert {
   background: hsl(55, 90%, 93%);
 }
