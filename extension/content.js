@@ -259,7 +259,7 @@ const gradeHelper = () => {
         `<span class="coology-course-scores">${scoreHtmls.join('')}</span>`);
 
         // Append available course grades to visible course names.
-        const courseGradeEl = nextSibEl.querySelector('.course-row .rounded-grade');
+        const courseGradeEl = nextSibEl.querySelector('.report-row:not(.item-row) .rounded-grade');
         const grade = courseGradeEl ? courseGradeEl.textContent : '';
 
         if (grade.length) {

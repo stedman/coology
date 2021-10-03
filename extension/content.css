@@ -10,11 +10,11 @@
   background-color: transparent;
 }
 .coology .dVlNp._10N3s._3Wb6n._3LeCL._2s0LQ._3v0y7._3_bfp,
-.coology .Header-header-button-1EE8Y {
+.coology .StandardHeader-header-button-active-state-V0d6c {
   background-color: transparent !important;
 }
-.coology .Header-header-button-1EE8Y:hover,
-.coology .Header-header-button-1EE8Y:focus,
+.coology .StandardHeader-header-button-active-state-V0d6c:hover,
+.coology .StandardHeader-header-button-active-state-V0d6c:focus,
 .coology .Header-header-button-active-GnvKh {
   background-color: var(--header-hover-bg, inherit) !important;
 }

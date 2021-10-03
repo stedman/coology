@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Coology",
   "description": "Awesome Schoology themes extension",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "icons": {
     "48": "icons/Coology-48.png",
     "96": "icons/Coology-96.png"
@@ -11,12 +11,20 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "content_scripts": [{
-    "matches": ["*://*.schoology.com/*"],
-    "css": ["content.css", "themes.css"],
-    "js": ["content.js"],
-    "run_at": "document_end"
-  }],
+  "content_scripts": [
+    {
+      "matches": ["*://*.schoology.com/*"],
+      "css": ["content.css", "themes.css"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["*://meet.google.com/*"],
+      "css": ["google-meets.css"],
+      "js": ["google-meets.js"],
+      "run_at": "document_idle"
+    }
+  ],
   "page_action": {
     "default_popup": "popup.html",
     "default_icon": {

@@ -1,5 +1,8 @@
 # Changelog
 
+* **0.17.0**
+  * fix header background color due to change in Schoology DOM
+  * improve Course Grade capture
 * **0.16.0**
   * add content link underlines so they're easier to find
   * add grade/alert counts to course grade headings
