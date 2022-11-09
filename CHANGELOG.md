@@ -1,5 +1,10 @@
 # Changelog
 
+* **1.0.0**
+  * update manifest from v2 to v3
+  * fix "Current"/"Past" button alignment on Grades page
+* **0.17.2**
+  * fix header button/anchor styles
 * **0.17.1**
   * remove Google Meets feature
 * **0.17.0**

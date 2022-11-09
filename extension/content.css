@@ -9,13 +9,16 @@
 .coology nav._1tpub.util-justify-content-space-between-3euFK {
   background-color: transparent;
 }
-.coology .dVlNp._10N3s._3Wb6n._3LeCL._2s0LQ._3v0y7._3_bfp,
-.coology .StandardHeader-header-button-active-state-V0d6c {
+.coology .site-navigation a,
+.coology .site-navigation button,
+.coology #site-navigation-footer a,
+.coology #site-navigation-footer button {
   background-color: transparent !important;
 }
-.coology .StandardHeader-header-button-active-state-V0d6c:hover,
-.coology .StandardHeader-header-button-active-state-V0d6c:focus,
-.coology .Header-header-button-active-GnvKh {
+.coology .site-navigation a:hover,
+.coology .site-navigation a:focus,
+.coology .site-navigation button:hover,
+.coology .site-navigation button:focus {
   background-color: var(--header-hover-bg, inherit) !important;
 }
 /* header menu */
@@ -99,6 +102,18 @@
 }
 
 /* GRADE HELPER */
+.coology #past-selector {
+  display: inline-block;
+  float: none !important;
+  height: auto;
+  margin: 0;
+}
+.coology #past-selector li,
+.coology .download-grade-wrapper {
+  display: inline-block;
+  float: none;
+}
+
 .coology-grade-expander {
   background: linear-gradient(#fff, #ddd);
   border-radius: 5px;

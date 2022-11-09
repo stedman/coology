@@ -6,8 +6,8 @@ const reUrl = /.+\.schoology\.com.+/;
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (reUrl.test(tab.url)) {
-    chrome.pageAction.show(tabId);
+    chrome.action.enable(tabId);
   } else {
-    chrome.pageAction.hide(tabId);
+    chrome.action.disable(tabId);
   }
 });
